@@ -6,8 +6,17 @@ brew install lua
 brew install scons
 brew install fftw
 
+scons --macosx --64bit --sse3
+
+cd build 
+./powder64-x
+
 ---
-the goal here is to make a 
+the goal here is to make a stripped down build of the thing to run on an LED wall
+(alternately, we could just grab a simpler sand world or write our own)
+
+not really sure if this will "work" at 84x48 pixels -- maybe run it at double-res?
+
 
 
 
