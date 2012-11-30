@@ -114,7 +114,7 @@ if not GetOption("macosx"):
 		raise SystemExit(1)
 
 	#Check for Lua lib
-	if not GetOption("macosx"):
+	#	if not GetOption("macosx"):
 		if not conf.CheckLib('lua') and not conf.CheckLib('lua5.1') and not conf.CheckLib('lua51') and not conf.CheckLib('lua-5.1'):
 			print "liblua not found or not installed"
 			raise SystemExit(1)
@@ -164,12 +164,17 @@ if(GetOption('lin')):
 if(GetOption('macosx')):
 	env.Append(CPPDEFINES=["MACOSX"])
 	env.Append(CCFLAGS=['-I/Library/Frameworks/SDL.framework/Headers'])
-	env.Append(CCFLAGS=['-I/Library/Frameworks/Lua.framework/Headers'])
+##	env.Append(CCFLAGS=['-I/code/git/powderToy/lua-5.2.1_MacOS107_lib/include'])
+##	env.Append(LINKFLAGS=['-L/code/git/powderToy/lua-5.2.1_MacOS107_lib/liblua52.a'])
+##	env.Append(LINKFLAGS=['-L/usr/local/Cellar/lua/5.1.4/liblua.dylib'])
+
+	#	env.Append(CCFLAGS=['-I/Library/Frameworks/Lua.framework/Headers'])
+	env.Append(LINKFLAGS=['/usr/local/lib/liblua.dylib'])
 	env.Append(LINKFLAGS=['-lfftw3f'])
 	env.Append(LINKFLAGS=['-framework'])
 	env.Append(LINKFLAGS=['SDL'])
-	env.Append(LINKFLAGS=['-framework'])
-	env.Append(LINKFLAGS=['Lua'])
+	#	env.Append(LINKFLAGS=['-framework'])
+	#	env.Append(LINKFLAGS=['Lua'])
 	env.Append(LINKFLAGS=['-framework']);
 	env.Append(LINKFLAGS=['Cocoa'])
 	#env.Append(LINKFLAGS=['-framework SDL'])
@@ -285,10 +290,10 @@ if(GetOption('win')):
 	envCopy.Append(CCFLAGS=['-mincoming-stack-boundary=2'])
 	sources+=envCopy.Object('src/simulation/Gravity.cpp')
 
-env.Command(['generated/ElementClasses.cpp', 'generated/ElementClasses.h'], Glob('src/simulation/elements/*.cpp'), "python2 generator.py elements $TARGETS $SOURCES")
+env.Command(['generated/ElementClasses.cpp', 'generated/ElementClasses.h'], Glob('src/simulation/elements/*.cpp'), "python generator.py elements $TARGETS $SOURCES")
 sources+=Glob("generated/ElementClasses.cpp")
 
-env.Command(['generated/ToolClasses.cpp', 'generated/ToolClasses.h'], Glob('src/simulation/tools/*.cpp'), "python2 generator.py tools $TARGETS $SOURCES")
+env.Command(['generated/ToolClasses.cpp', 'generated/ToolClasses.h'], Glob('src/simulation/tools/*.cpp'), "python generator.py tools $TARGETS $SOURCES")
 sources+=Glob("generated/ToolClasses.cpp")
 
 env.Decider('MD5')

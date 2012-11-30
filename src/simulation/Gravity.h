@@ -6,6 +6,8 @@
 #include "Config.h"
 #include "Simulation.h"
 
+#include <complex>
+
 #ifdef GRAVFFT
 #include <fftw3.h>
 #endif

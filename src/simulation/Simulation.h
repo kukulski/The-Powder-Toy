@@ -10,6 +10,7 @@
 #include <cstring>
 #include <cstddef>
 #include <vector>
+#include <complex>
 
 #include "Config.h"
 #include "Elements.h"

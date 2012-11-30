@@ -1,4 +1,17 @@
-build instructions are at http://powdertoy.co.uk/Wiki/W/Compiling_for_Mac_OS_X.html
+build instructions are at http://powdertoy.co.uk/Wiki/W/Compiling_for_Mac_OS_X.html, but they are utterly borked.
+
+instead...
+install homebrew
+brew install lua
+brew install scons
+brew install fftw
+
+---
+the goal here is to make a 
+
+
+
+
 -----------
 The Powder Toy - November 2012
 
