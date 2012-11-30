@@ -50,7 +50,8 @@ using namespace std;
 extern "C" IMAGE_DOS_HEADER __ImageBase;
 #endif
 
-int desktopWidth = 1280, desktopHeight = 1024;
+//int desktopWidth = 1280, desktopHeight = 1024;
+int desktopWidth = 320, desktopHeight = 256;
 
 SDL_Surface * sdl_scrn;
 int scale = 1;

@@ -123,12 +123,23 @@
 //#define BARSIZE 50
 #define BARSIZE 17
 #endif
-#define XRES	612
-#define YRES	384
+
+#define SMALL
+
+#ifdef SMALL
+	#define XRES	256
+	#define YRES	256
+	#define XCNTR   128
+	#define YCNTR   128
+#else
+	#define XRES	612
+	#define YRES	384
+	
+	#define XCNTR   306
+	#define YCNTR   192
+#endif
 #define NPART XRES*YRES
 
-#define XCNTR   306
-#define YCNTR   192
 
 #define MAX_DISTANCE sqrt(pow((float)XRES, 2)+pow((float)YRES, 2))
 
